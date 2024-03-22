@@ -4,6 +4,7 @@ import Footer from "../components/Footer";
 import Card from "../components/Card";
 // require("dotenv").config()
 
+const BASE_URL = process.env.BASE_URL;
 
 const Home = () => {
   const [foodCat, setFoodCat] = useState([]); //Using array as initial value because we are going to send array from backend
@@ -12,7 +13,7 @@ const Home = () => {
   const [search,setSearch]  = useState('');
 
   const loadData = async () => {
-    let response = await fetch("http://localhost:5000/api/foodData", {
+    let response = await fetch(`${BASE_URL}/api/foodData`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
